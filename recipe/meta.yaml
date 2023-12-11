@@ -1,6 +1,6 @@
 {% set name = "mprod-package" %}
-{% set version = "0.0.4a1" %}
-{% set sha256 = "eebdb337642714ef13bc19a4e524612bf3dfc4b0712398ab5a2a417bf8d88364" %}
+{% set version = "0.0.5a1" %}
+{% set sha256 = "a5b791bb4337aa749a9bac3a7969e2878bbcc5f4cfd8636ce755f1e99ff49578" %}
 
 
 package:
