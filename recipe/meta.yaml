@@ -1,6 +1,6 @@
 {% set name = "mprod-package" %}
-{% set version = "0.0.5a1" %}
-{% set sha256 = "a5b791bb4337aa749a9bac3a7969e2878bbcc5f4cfd8636ce755f1e99ff49578" %}
+{% set version = "0.0.6" %}
+{% set sha256 = "f2d26612acedd9a1090fb37b0295af7f1eb7f8f2e97e2117790ba3f9d5b70e64" %}
 
 
 package:
@@ -8,11 +8,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/mprod-package-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name|replace("-", "_") }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script: {{ PYTHON }} -m pip install --no-deps --ignore-installed . -vv
 
@@ -20,8 +20,8 @@ requirements:
   host:
     - pip
     - python {{ python_min }}
+    - setuptools
   run:
-    - dataclasses >=0.7
     - numpy >=1.19.2
     - pandas >=1.1.5
     - python >={{ python_min }}
@@ -31,6 +31,8 @@ requirements:
 test:
   imports:
     - mprod
+    - mprod.decompositions
+    - mprod.dimensionality_reduction
   commands:
     - pip check
   requires:
